@@ -98,7 +98,7 @@ namespace CatalogoProdutos.Api
                 s.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "CatalgoProdutos.Api",
+                    Title = "CatalogoProdutos.Api",
                     Description = "API do Site Catalogo Produtos",
                     TermsOfService = "Nenhum",
                     Contact = new Contact { Name = "Milton Reis", Email = "wmr049@gmail.com", Url = "http://github.com/wmr049" },

@@ -11,7 +11,7 @@ app.config(['$locationProvider' ,'$routeProvider',
     }
 ]);
 
-var serviceBase = 'http://localhost:26264/';
+var serviceBase = 'http://localhost:56357/';
 
 app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,

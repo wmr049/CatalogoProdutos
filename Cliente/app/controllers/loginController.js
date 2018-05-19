@@ -2,9 +2,9 @@
 app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuthSettings',
     function ($scope, $location, authService, ngAuthSettings) {
         $scope.loginData = {
-            userName: "",
+            email: "",
             password: "",
-            useRefreshTokens: false
+            rememberMe: false
         };
     
         $scope.message = "";

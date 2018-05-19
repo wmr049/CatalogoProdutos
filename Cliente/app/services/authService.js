@@ -20,23 +20,16 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
 
         _logOut();
 
-        return $http.post(serviceBase + 'api/account/register', registration).then(function (response) {
+        return $http.post(serviceBase + 'api/v1/nova-conta', registration).then(function (response) {
             return response;
         });
 
     };
 
     var _login = function (loginData) {
-
-        var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
-
-        if (loginData.useRefreshTokens) {
-            data = data + "&client_id=" + ngAuthSettings.clientId;
-        }
-
-        var deferred = $q.defer();
-
-        $http.post(serviceBase + '/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
+                
+       
+        $http.post(serviceBase + 'api/v1/conta', loginData, { headers: { 'Content-Type': 'application/json' } }).success(function (response) {
 
             if (loginData.useRefreshTokens) {
                 localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName, refreshToken: response.refresh_token, useRefreshTokens: true });
@@ -93,7 +86,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
 
                 localStorageService.remove('authorizationData');
 
-                $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
+                $http.post(serviceBase + 'api/v1/conta', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
                     localStorageService.set('authorizationData', { token: response.access_token, userName: response.userName, refreshToken: response.refresh_token, useRefreshTokens: true });
 
@@ -113,7 +106,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
 
         var deferred = $q.defer();
 
-        $http.get(serviceBase + 'api/account/ObtainLocalAccessToken', { params: { provider: externalData.provider, externalAccessToken: externalData.externalAccessToken } }).success(function (response) {
+        $http.get(serviceBase + 'api/v1/account/ObtainLocalAccessToken', { params: { provider: externalData.provider, externalAccessToken: externalData.externalAccessToken } }).success(function (response) {
 
             localStorageService.set('authorizationData', { token: response.access_token, userName: response.userName, refreshToken: "", useRefreshTokens: false });
 
