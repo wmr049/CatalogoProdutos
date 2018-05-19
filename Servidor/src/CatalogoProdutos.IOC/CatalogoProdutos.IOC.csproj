@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="automapper" Version="6.0.2" />
+    <PackageReference Include="MediatR" Version="3.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CatalogoProdutos.Domain\CatalogoProdutos.Domain.csproj" />
+    <ProjectReference Include="..\CatalogoProdutos.Infra.AspNetFilters\CatalogoProdutos.Infra.AspNetFilters.csproj" />
+    <ProjectReference Include="..\CatalogoProdutos.Infra.Dados\CatalogoProdutos.Infra.Dados.csproj" />
+    <ProjectReference Include="..\CatalogoProdutos.Infra.Identity\CatalogoProdutos.Infra.Identity.csproj" />
+  </ItemGroup>
+
+</Project>
