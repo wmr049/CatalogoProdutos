@@ -33,8 +33,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CatalogoProdutos.Infra.AspNetFilters\CatalogoProdutos.Infra.AspNetFilters.csproj" />
-    <ProjectReference Include="..\CatalogoProdutos.Infra.Identity\CatalogoProdutos.Infra.Identity.csproj" />
+    <ProjectReference Include="..\CatalogoProdutos.Domain\CatalogoProdutos.Domain.csproj" />
+    <ProjectReference Include="..\CatalogoProdutos.Infra.AspNetFilters\CatalogoProdutos.Infra.AspNetFilters.csproj" />    
     <ProjectReference Include="..\CatalogoProdutos.IOC\CatalogoProdutos.IOC.csproj" />
   </ItemGroup>
 

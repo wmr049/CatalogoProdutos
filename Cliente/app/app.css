@@ -12,7 +12,9 @@ body {
 xpadding-bottom: 10px;
 }
 
-
+.container {
+  padding: inherit;
+}
 
 #footer {
   position: absolute;

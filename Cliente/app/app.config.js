@@ -7,6 +7,11 @@ app.config(['$locationProvider' ,'$routeProvider',
             templateUrl: "/views/login.html"
         });
 
+        $routeProvider.when("/produtos", {
+            controller: "produtosController",
+            templateUrl: "/views/produtos.html"
+        });
+
         $routeProvider.otherwise({ redirectTo: "/login" });
     }
 ]);
@@ -17,3 +22,11 @@ app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
     clientId: 'ngAuthApp'
 });
+
+app.config(function ($httpProvider) {
+    $httpProvider.interceptors.push('authInterceptorService');
+});
+
+app.run(['authService', function (authService) {
+    authService.fillAuthData();
+}]);
