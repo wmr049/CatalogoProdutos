@@ -16,6 +16,10 @@ xpadding-bottom: 10px;
   padding: inherit;
 }
 
+.row {
+  margin-bottom: 15px;
+}
+
 #footer {
   position: absolute;
   bottom: 0;

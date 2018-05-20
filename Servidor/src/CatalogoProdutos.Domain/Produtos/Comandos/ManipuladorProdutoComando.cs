@@ -45,9 +45,9 @@ namespace CatalogoProdutos.Domain.Produtos.Comandos
             _produtoRepositorio.Adicionar(produto);
 
             if (Commit())
-            {
+            {                
                 Console.WriteLine("Produto registrado com sucesso");
-                _mediator.PublicarEvento(new RegistradoProdutoEvento(produto.Id, produto.Nome, produto.Preco));
+                _mediator.PublicarEvento(new RegistradoProdutoEvento(produto.Id, produto.Nome, produto.Preco, produto.Codigo));
             }
         }
 

@@ -21,7 +21,7 @@ namespace CatalogoProdutos.Infra.Dados.Repositorio
         {
             var sql = "SELECT * FROM PRODUTOS P " +
                       "WHERE P.EXCLUIDO = 0 " +
-                      "ORDER BY P.ID DESC";
+                      "ORDER BY P.CODIGO ASC";
 
             return Db.Database.GetDbConnection().Query<Produto>(sql);
         }                

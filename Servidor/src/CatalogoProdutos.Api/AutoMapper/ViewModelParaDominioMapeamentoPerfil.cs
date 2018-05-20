@@ -11,7 +11,7 @@ namespace CatalogoProdutos.Api.AutoMapper
             public ViewModelParaDominioMapeamentoPerfil()
             {
                 CreateMap<ProdutoViewModel, RegistrarProdutoComando>()
-                    .ConstructUsing(c => new RegistrarProdutoComando(c.Nome, c.Descricao, c.Preco));
+                    .ConstructUsing(c => new RegistrarProdutoComando(c.Nome, c.Descricao, c.Preco, c.Codigo));                    
 
                 CreateMap<ProdutoViewModel, AtualizarProdutoComando>()
                     .ConstructUsing(c => new AtualizarProdutoComando(c.Id, c.Nome, c.Descricao, c.Preco));

@@ -47,9 +47,11 @@ namespace CatalogoProdutos.Api.Controllers
             }
 
             var eventoCommand = _mapper.Map<RegistrarProdutoComando>(produtoViewModel);
-
             _mediator.EnviarComando(eventoCommand);
-            return Response(eventoCommand);
+            var produto = _produtoRepositorio.BuscarPorId(produtoViewModel.Id);
+            
+
+            return Response(_mapper.Map<ProdutoViewModel>(produto));
         }
 
         private bool ModelStateValida()

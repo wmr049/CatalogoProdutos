@@ -15,6 +15,10 @@ namespace CatalogoProdutos.Infra.Dados.Mapeamentos
                 .IsRequired();
 
             construtor
+                .Property(e => e.Codigo)
+                .UseSqlServerIdentityColumn();
+
+            construtor
                 .Property(e => e.Descricao)
                 .HasColumnType("varchar(150)");            
 

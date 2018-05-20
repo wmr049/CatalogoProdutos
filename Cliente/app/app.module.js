@@ -5,7 +5,6 @@ var app = angular.module('CatalogoProdutosApp', [
     'ngAnimate',
     'ngRoute',
     'LocalStorageModule', 
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'ui.bootstrap'
 ]);
-
-

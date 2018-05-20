@@ -6,14 +6,16 @@ namespace CatalogoProdutos.Domain.Produtos.Eventos
 {
     public class RegistradoProdutoEvento : BaseProdutoEvento
     {
-        public RegistradoProdutoEvento(
+        public RegistradoProdutoEvento(            
             Guid id,
             string nome,
-            decimal preco)
-        {
+            decimal preco,
+            int codigo)
+        {            
             Id = id;
             Nome = nome;
             Preco = preco;
+            Codigo = codigo;
 
             AgregacaoId = id;
         }

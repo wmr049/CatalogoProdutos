@@ -22,6 +22,9 @@ namespace CatalogoProdutos.Api.ViewModels
         [Display(Name = "Descricao do Produto")]
         public string Descricao { get; set; }
 
+        [Display(Name = "Código do Produto")]
+        public int Codigo { get; set; }
+
         [Display(Name = "Preço'")]
         [DisplayFormat(DataFormatString = "{0:C}")]
         [DataType(DataType.Currency, ErrorMessage = "Moeda em formato inválido")]

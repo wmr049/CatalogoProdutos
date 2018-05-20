@@ -8,9 +8,10 @@ using CatalogoProdutos.Infra.Dados.Contexto;
 namespace CatalogoProdutos.Infra.Dados.Migrations
 {
     [DbContext(typeof(DefaultContext))]
-    partial class DefaultContextModelSnapshot : ModelSnapshot
+    [Migration("20180520162242_AddCodigoProduto")]
+    partial class AddCodigoProduto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

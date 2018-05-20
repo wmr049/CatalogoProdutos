@@ -5,6 +5,7 @@ namespace CatalogoProdutos.Domain.Produtos.Eventos
 {
     public abstract class BaseProdutoEvento : Event
     {
+        public int Codigo { get; protected set; }
         public Guid Id { get; protected set; }
         public string Nome { get; protected set; }
         public string Descricao { get; protected set; }        

@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -90,19 +91,19 @@ namespace CatalogoProdutos.Api.Controllers
                   expires: _jwtTokenOptions.Expiration,
                   signingCredentials: _jwtTokenOptions.SigningCredentials);
 
-            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
-            //var orgUser = _organizadorRepository.BuscarPorId(Guid.Parse(user.Id));
+            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);            
 
             var response = new
             {
                 access_token = encodedJwt,
                 expires_in = (int)_jwtTokenOptions.ValidFor.TotalSeconds,
                 user = new
-                {
-                    //id = user.Id,
-                    //nome = orgUser.Nome,
-                    //email = orgUser.Email,
-                    //claims = userClaims.Select(c => new { c.Type, c.Value })
+                {                    
+                    id = user.Id,
+                    nome = user.UserName,
+                    email = user.Email,                    
+                    claims = userClaims.Select(c => new { c.Type, c.Value }),
+                    expires = _jwtTokenOptions.Expiration
                 }
 
 
@@ -118,7 +119,7 @@ namespace CatalogoProdutos.Api.Controllers
         {
             if (version == 2)
             {
-                return Response(new { Message = "API V2 n�o dispon�vel" });
+                return Response(new { Message = "API V2 não disponível" });
             }
 
             if (!ModelState.IsValid) return Response(model);
@@ -131,9 +132,7 @@ namespace CatalogoProdutos.Api.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
-            {
-                //var registroCommand = new ComandoRegistrarOrganizador(Guid.Parse(user.Id), model.Nome, model.CPF, user.Email);
-                //await _mediator.EnviarComando(registroCommand);
+            {                
 
                 if (!OperacaoValida())
                 {
