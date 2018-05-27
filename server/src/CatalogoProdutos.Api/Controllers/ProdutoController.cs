@@ -33,6 +33,7 @@ namespace CatalogoProdutos.Api.Controllers
         [Authorize(Policy = "PodeLerProdutos")]
         public IEnumerable<ProdutoViewModel> Get()
         {
+
             return _mapper.Map<IEnumerable<ProdutoViewModel>>(_produtoRepositorio.BuscarTodos());
         }
 
