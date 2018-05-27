@@ -1,0 +1,106 @@
+<div class="container main-container">
+  <h2>Lista dos Produtos</h2>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="pull-left">
+      <a class="btn btn-primary btn-space" id="novoProduto" (click)='showModal()'>        
+        <span title="Novo Produto" class="glyphicon glyphicon-plus-sign"></span> Novo Produto
+      </a>
+    </div>
+  </div>
+</div>
+<br>
+
+
+  <div class='text-danger' *ngIf='errorsProduto'>{{errorsProduto}}</div>
+
+  <div class="page-size">
+    <div class="panel panel-default">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>            
+            <th>Descrição</th>
+            <th>Preço</th>            
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let produto of produtos'>
+            <td>{{ produto.codigo }}</td>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.descricao }}</td>
+            <td>{{ produto.preco }}</td>                        
+            <td>
+              <a [routerLink]="['/produtos/detalhes', produto.id]" title="Detalhes" class="btn btn-primary">
+                <span class="glyphicon glyphicon-search"></span> Saber Mais
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Adicionar Prodouto -->
+  <div id="myModal" class="modal fade in" [ngStyle]="{'display': modalVisible ? 'block' : 'none'}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button (click)='hideModal()' type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">Fechar</span>
+          </button>
+          <h4 class="modal-title">Criar Produto</h4>
+        </div>
+
+        <form novalidate (ngSubmit)="adicionarProduto()" [formGroup]="produtoForm">
+          <div class="modal-body">
+            <div class="form-horizontal">
+
+              <div class="alert alert-danger" *ngIf="errorsProduto.length > 0">
+                <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+                <ul>
+                  <li *ngFor="let error of errorsProduto">{{ error }}</li>
+                </ul>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-2 control-label">Nome</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" placeholder="nome" formControlName="nome" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-2 control-label">Descrição</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" placeholder="descricao" formControlName="descricao" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-md-2 control-label">Preço</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="number" placeholder="preco" formControlName="preco" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <div class="col-md-offset-2 col-md-10">
+              <span>
+                <button class="btn btn-success btn-space" type="button" (click)='adicionarProduto()' [disabled]='!produtoForm.valid'>Salvar</button>
+              </span>
+              <input type="button" class="btn btn-info btn-space" value="Fechar" (click)='hideModal()' />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

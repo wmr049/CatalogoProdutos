@@ -14,20 +14,24 @@ import 'rxjs/add/observable/throw';
 export abstract class BaseService {
   protected UrlServiceV1 = 'http://localhost:56357/api/v1/';
 
-  protected httpJsonOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-
-  protected httpJsonAuth() {
+  protected ObterHeaderJson() {
     return {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.ObterTokenUsuario()}`
+        'Content-Type': 'application/json'
       })
     };
   }
 
-  protected ObterTokenUsuario(): string {
+  protected ObterAuthHeaderJson() {
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.obterTokenUsuario()}`
+      })
+    };
+  }
+
+  protected obterTokenUsuario(): string {
     return localStorage.getItem('cp.token');
   }
 

@@ -7,12 +7,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
       </button>
-      <a [routerLink]="['/']" class="navbar-brand">Catalogo.Produtos</a>
+      <a [routerLink]="['/']" class="navbar-brand">Produtos</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
       <ul class="nav navbar-nav">
-        <li><a [routerLink]="['/eventos']">Catalogo Produtos</a></li>
-        <li *ngIf="usuarioLogado()"><a [routerLink]="['/eventos/meus-eventos']">Meus Produtos</a></li>
+        <li><a [routerLink]="['/produtos']">Produtos</a></li>
+        <li *ngIf="usuarioLogado()"><a [routerLink]="['/produtos/meus-produtos']">Meus Produtos</a></li>
       </ul>
       <app-menu-login></app-menu-login>
     </div>

@@ -12,8 +12,7 @@ import { SafePipe } from '../common/pipes/safeurl.pipe';
 import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuLoginComponent } from './menu-login/menu-login.component';
-import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
-import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.component';
+
 
 @NgModule({
     imports: [
@@ -24,15 +23,12 @@ import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.componen
     declarations: [
         MenuSuperiorComponent,
         FooterComponent,
-        MenuLoginComponent,
-        NaoEncontradoComponent,
-        SafePipe
+        MenuLoginComponent
         ],
     exports: [
         MenuSuperiorComponent,
         FooterComponent,
-        MenuLoginComponent,
-        SafePipe
+        MenuLoginComponent
         ]
 })
 export class SharedModule { }
